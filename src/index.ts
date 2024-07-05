@@ -46,10 +46,13 @@ io.on('connection', (socket) => {
     });
   });
 
+
+
   socket.on('send-prompt', async (data) => {
     const { roomId, message } = data;
     console.log(`Message from ${socket.id} to room ${roomId}: ${message}`);
     const girlfriendAIService = new GirldriendAIService();
+    // const messages = await getMessagesFromDatabase(message);
     const response = await girlfriendAIService.create(message);
     io.to(roomId).emit('receive-message', {
       userId: socket.id,

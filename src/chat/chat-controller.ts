@@ -6,6 +6,7 @@ class ChatController {
     private chatService;
 
     constructor() {
+        
         this.chatService = chatService;
     }
 
