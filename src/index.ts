@@ -49,11 +49,11 @@ io.on('connection', (socket) => {
 
 
   socket.on('send-prompt', async (data) => {
-    const { roomId, message } = data;
+    const { roomId, message, systemPrompt } = data;
     console.log(`Message from ${socket.id} to room ${roomId}: ${message}`);
     const girlfriendAIService = new GirldriendAIService();
     // const messages = await getMessagesFromDatabase(message);
-    const response = await girlfriendAIService.create(message);
+    const response = await girlfriendAIService.create(message, systemPrompt);
     io.to(roomId).emit('receive-message', {
       userId: socket.id,
       message: response,
