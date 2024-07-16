@@ -5,5 +5,10 @@ const openai = new OpenAI({
     dangerouslyAllowBrowser: true
 })
 
+export const openaiSystemPromptWriter = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true
+})
+
 
 export default openai;
