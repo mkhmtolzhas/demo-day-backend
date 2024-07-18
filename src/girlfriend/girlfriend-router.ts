@@ -13,4 +13,6 @@ girlfriendRouter.get('/', girlfriendController.getGirlfriends.bind(girlfriendCon
 
 girlfriendRouter.put('/:girlfriendId', girlfriendController.updateGirlfriend.bind(girlfriendController));
 
+girlfriendRouter.get('/amount/:amount', girlfriendController.getGirlfriendByAmount.bind(girlfriendController));
+
 export default girlfriendRouter;

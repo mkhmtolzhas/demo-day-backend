@@ -76,6 +76,17 @@ class GirlfriendController {
             res.status(500).json({message: 'Error updating girlfriend'});
         }
     }
+
+    async getGirlfriendByAmount(req: Request, res: Response) {
+        try {
+            const amount = parseInt(req.params.amount);
+            const girlfriends = await this.girlfriendService.getGirlfriendByAmount(amount);
+
+            res.status(200).json(girlfriends);
+        } catch (error) {
+            res.status(500).json({message: 'Error getting girlfriends'});
+        }
+    }
 }
 
 export default new GirlfriendController();

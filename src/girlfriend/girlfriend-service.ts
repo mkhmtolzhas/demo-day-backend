@@ -21,6 +21,14 @@ class GirlfriendService {
     async updateGirlfriend(girlfriendId : string, girlfriend) {
         return await Girlfriend.findByIdAndUpdate(girlfriendId, girlfriend);
     }
+
+    // async getGirlfriendByName(name : string) {
+    //     return await Girlfriend.findOne({name});
+    // }
+
+    async getGirlfriendByAmount(amount : number) {
+        return await Girlfriend.find().limit(amount);
+    }
 }
 
 export default new GirlfriendService();
